@@ -12,35 +12,70 @@ export const site = {
   announcement: "Opening in Mirdif, Dubai",
 };
 
-export type Category = { slug: string; name: string; image?: string };
+export type Category = { slug: string; name: string; nameAr: string; image?: string };
 export type Product = {
   slug: string;
   name: string;
   category: string; // Category slug
-  price?: number; // AED — leave undefined until confirmed
+  price: number; // AED
   description?: string;
   image?: string;
   sizes?: { label: string; price: number }[];
   addOns?: { label: string; price: number }[];
   allergens?: string[];
-  draft?: boolean; // true = not yet confirmed from the café's menu
 };
 
-// TODO(menu): the Brown Town menu file (36 items, 6 categories, AED prices) was not received.
-// Replace these draft records with the confirmed menu.
+// Menu from the client's Brown Town menu (prices in AED). 36 items, 6 categories.
 export const categories: Category[] = [
-  { slug: "hot-coffee", name: "Hot Coffee", image: cappuccino.url },
-  { slug: "iced-coffee", name: "Iced Coffee", image: icedLatte.url },
-  { slug: "matcha", name: "Matcha", image: icedMatcha.url },
+  { slug: "hot-coffee", name: "Hot Coffee", nameAr: "القهوة الساخنة", image: cappuccino.url },
+  { slug: "iced-coffee", name: "Iced Coffee", nameAr: "القهوة المثلجة", image: icedLatte.url },
+  { slug: "refreshers", name: "Refreshers", nameAr: "مشروبات منعشة" },
+  { slug: "bakery", name: "Bakery", nameAr: "المخبوزات" },
+  { slug: "signature-drinks", name: "Signature Drinks", nameAr: "مشروبات مميزة" },
+  { slug: "matcha", name: "Matcha", nameAr: "ماتشا", image: icedMatcha.url },
 ];
 
 export const products: Product[] = [
-  { slug: "cappuccino", name: "Cappuccino", category: "hot-coffee", image: cappuccino.url, description: "Espresso with steamed milk and a thick layer of foam.", draft: true },
-  { slug: "iced-latte", name: "Iced Latte", category: "iced-coffee", image: icedLatte.url, description: "Espresso poured over cold milk and ice.", draft: true },
-  { slug: "iced-matcha-latte", name: "Iced Matcha Latte", category: "matcha", image: icedMatcha.url, description: "Matcha whisked into cold milk over ice.", draft: true },
+  { slug: "espresso", name: "Espresso", category: "hot-coffee", price: 19 },
+  { slug: "double-espresso", name: "Double espresso", category: "hot-coffee", price: 20 },
+  { slug: "americano", name: "Americano", category: "hot-coffee", price: 20 },
+  { slug: "cappuccino", name: "Cappuccino", category: "hot-coffee", price: 20, image: cappuccino.url },
+  { slug: "cafe-latte", name: "Café latte", category: "hot-coffee", price: 20 },
+  { slug: "flat-white", name: "Flat white", category: "hot-coffee", price: 22 },
+  { slug: "spanish-latte", name: "Spanish latte", category: "hot-coffee", price: 22 },
+  { slug: "caramel-latte", name: "Caramel latte", category: "hot-coffee", price: 22 },
+  { slug: "mocha", name: "Mocha", category: "hot-coffee", price: 28 },
+  { slug: "white-chocolate-mocha", name: "White chocolate mocha", category: "hot-coffee", price: 29 },
+  { slug: "hot-chocolate", name: "Hot chocolate", category: "hot-coffee", price: 20 },
+  { slug: "iced-americano", name: "Iced americano", category: "iced-coffee", price: 20 },
+  { slug: "iced-latte", name: "Iced latte", category: "iced-coffee", price: 20, image: icedLatte.url },
+  { slug: "iced-spanish-latte", name: "Iced Spanish latte", category: "iced-coffee", price: 22 },
+  { slug: "iced-caramel-latte", name: "Iced caramel latte", category: "iced-coffee", price: 22 },
+  { slug: "iced-mocha", name: "Iced mocha", category: "iced-coffee", price: 28 },
+  { slug: "iced-white-mocha", name: "Iced white mocha", category: "iced-coffee", price: 28 },
+  { slug: "iced-flat-white", name: "Iced flat white", category: "iced-coffee", price: 25 },
+  { slug: "cold-brew", name: "Cold brew", category: "iced-coffee", price: 25 },
+  { slug: "classic-mojito", name: "Classic mojito", category: "refreshers", price: 20 },
+  { slug: "blue-lagoon-mojito", name: "Blue lagoon mojito", category: "refreshers", price: 20 },
+  { slug: "lemon-mint-mojito", name: "Lemon mint mojito", category: "refreshers", price: 20 },
+  { slug: "butter-croissant", name: "Butter croissant", category: "bakery", price: 10 },
+  { slug: "cheese-croissant", name: "Cheese croissant", category: "bakery", price: 10 },
+  { slug: "chocolate-croissant", name: "Chocolate croissant", category: "bakery", price: 10 },
+  { slug: "chocolate-muffin", name: "Chocolate muffin", category: "bakery", price: 10 },
+  { slug: "chocolate-brownie", name: "Chocolate brownie", category: "bakery", price: 10 },
+  { slug: "chocolate-chip-cookie", name: "Chocolate chip cookie", category: "bakery", price: 10 },
+  { slug: "1833-signature-latte", name: "1833 signature latte", category: "signature-drinks", price: 32 },
+  { slug: "arabic-pistachio-latte", name: "Arabic pistachio latte", category: "signature-drinks", price: 30 },
+  { slug: "arabic-mocha", name: "Arabic mocha", category: "signature-drinks", price: 30 },
+  { slug: "classic-matcha-latte", name: "Classic matcha latte", category: "matcha", price: 25 },
+  { slug: "iced-matcha-latte", name: "Iced matcha latte", category: "matcha", price: 25, image: icedMatcha.url },
+  { slug: "mango-matcha", name: "Mango matcha", category: "matcha", price: 30 },
+  { slug: "matcha-cold", name: "Matcha cold", category: "matcha", price: 32 },
+  { slug: "spanish-matcha", name: "Spanish matcha", category: "matcha", price: 30 },
 ];
 
-export const featured = ["cappuccino", "iced-latte", "iced-matcha-latte"];
+export const featured = ["cappuccino", "iced-latte", "iced-matcha-latte", "1833-signature-latte"];
+export const homeCategories = ["hot-coffee", "matcha", "bakery"];
 
 export const location = {
   name: "Brown Town Café — Mirdif",
@@ -62,5 +97,5 @@ export const reviews: { quote: string; name: string }[] = [];
 
 export const tickerWords = ["Espresso", "Cappuccino", "Iced Latte", "Mirdif", "Matcha", "Brown Town"];
 
-export const formatAED = (n?: number) => (n == null ? "Price to be confirmed" : `AED ${n % 1 ? n.toFixed(2) : n}`);
+export const formatAED = (n: number) => `AED ${n % 1 ? n.toFixed(2) : n}`;
 export const productsIn = (slug: string) => products.filter((p) => p.category === slug);

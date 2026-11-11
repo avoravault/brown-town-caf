@@ -45,7 +45,7 @@ function MenuPage() {
           const items = productsIn(c.slug);
           return (
             <section key={c.slug} id={c.slug} className="scroll-mt-32 pt-24 last:pb-24">
-              <div className="flex items-baseline gap-4"><h2 className="h2">{c.name}</h2><span className="text-sm text-muted-foreground">{items.length} {items.length === 1 ? "item" : "items"}</span></div>
+              <div className="flex items-baseline gap-4"><h2 className="h2">{c.name} <span lang="ar" dir="rtl" className="text-caramel">/ {c.nameAr}</span></h2><span className="text-sm text-muted-foreground">{items.length} {items.length === 1 ? "item" : "items"}</span></div>
               <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">{items.map((p) => <ProductCard key={p.slug} p={p} />)}</div>
             </section>
           );

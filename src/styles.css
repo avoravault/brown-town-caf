@@ -98,7 +98,7 @@
 @utility checker { height: 16px; background-image: conic-gradient(var(--espresso) 25%, var(--ivory) 0 50%, var(--espresso) 0 75%, var(--ivory) 0); background-size: 16px 16px; }
 
 /* Hero drinks: centre box height --h, sides 82% of it; widths follow each image's own ratio */
-@utility drink-stage { --h: 528px; height: calc(var(--h) * 0.92); overflow: hidden; display: flex; align-items: flex-end; justify-content: center;
+@utility drink-stage { --h: 528px; height: calc(var(--h) + 24px); padding-top: 24px; overflow: hidden; display: flex; align-items: flex-end; justify-content: center;
   @media (max-width: 991px) { --h: 440px; } @media (max-width: 767px) { --h: 300px; } @media (max-width: 479px) { --h: 240px; } }
 @utility drink { display: block; width: auto; max-width: none; transform-origin: 50% 100%; transform: translateY(100%) scale(0); will-change: transform; }
 
@@ -115,6 +115,7 @@
 .ticker-track { display: flex; width: max-content; animation: ticker 15s linear infinite; }
 .ticker[data-paused="true"] .ticker-track { animation-play-state: paused; }
 
+.ticker-track > div { padding-right: 0; }
 .zoom-img img { transition: transform .35s ease; }
 .zoom-img:hover img { transform: scale(1.03); }
 .zoom-img.zoom-lg:hover img { transform: scale(1.05); }

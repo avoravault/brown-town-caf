@@ -1,16 +1,17 @@
 import { Link } from "@tanstack/react-router";
 import { location } from "@/data/site";
-import { logos } from "./Logo";
 
 // Swap for real interior photography: pass `src`.
 export function InteriorSlot({ src, className = "" }: { src?: string; className?: string }) {
+  if (!src) return null; // hidden until interior photos are supplied
   return (
     <figure className={`relative overflow-hidden rounded-3xl bg-tint ${className}`}>
-      {src ? <img src={src} alt="Interior preview" loading="lazy" className="h-full w-full object-cover" /> : <div className="grid h-full place-items-center"><img src={logos.monogram} alt="" className="h-16 opacity-25" /></div>}
-      <figcaption className="absolute bottom-3 left-3 rounded-full bg-ivory px-3 py-1 text-sm text-espresso">Interior preview</figcaption>
+      <img src={src} alt="Brown Town interior" loading="lazy" className="h-full w-full object-cover" />
     </figure>
   );
 }
+
+export const interiorPhotos: string[] = []; // add interior photo URLs here
 
 export function VisitCard() {
   const l = location;

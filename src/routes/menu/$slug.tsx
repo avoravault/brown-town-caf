@@ -21,7 +21,7 @@ export const Route = createFileRoute("/menu/$slug")({
 function ProductPage() {
   const p = Route.useLoaderData();
   const cat = categories.find((c) => c.slug === p.category);
-  const related = products.filter((x) => x.slug !== p.slug).slice(0, 4);
+  const related = products.filter((x) => x.slug !== p.slug && x.category === p.category).slice(0, 4);
   return (
     <>
       <section className="container-x pt-[184px] max-md:pt-36">

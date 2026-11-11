@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { InteriorSlot } from "@/components/Blocks";
+import { InteriorSlot, interiorPhotos } from "@/components/Blocks";
 import { CtaBanner } from "@/components/CtaBanner";
 import { Ticker } from "@/components/Ticker";
 import { logos } from "@/components/Logo";
@@ -25,11 +25,13 @@ export const Route = createFileRoute("/about-us")({
           <p className="mt-4">Brown Town is a café for Mirdif — a place for a morning cappuccino, an afternoon iced latte or a slow matcha with friends.</p>
         </div>
       </section>
-      <section className="bg-tint section-y">
-        <div className="container-x grid gap-6 md:grid-cols-3">
-          <InteriorSlot className="aspect-[3/4]" /><InteriorSlot className="aspect-[3/4] md:mt-16" /><InteriorSlot className="aspect-[3/4]" />
-        </div>
-      </section>
+      {interiorPhotos.length > 0 && (
+        <section className="bg-tint section-y">
+          <div className="container-x grid gap-6 md:grid-cols-3">
+            {interiorPhotos.slice(0, 3).map((src, i) => <InteriorSlot key={src} src={src} className={`aspect-[3/4] ${i === 1 ? "md:mt-16" : ""}`} />)}
+          </div>
+        </section>
+      )}
       <CtaBanner />
     </>
   ),

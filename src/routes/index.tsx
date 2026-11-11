@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { categories, cupImages, featured, location, products, publishedPosts, site, formatAED } from "@/data/site";
+import { categories, cupImages, featured, homeCategories, location, products, publishedPosts, site } from "@/data/site";
+import { FeatureIcon } from "@/components/FeatureIcon";
+import { logos } from "@/components/Logo";
 import { Ticker } from "@/components/Ticker";
 import { ProductCard } from "@/components/ProductCard";
 import { CtaBanner } from "@/components/CtaBanner";
-import { InteriorSlot, VisitCard } from "@/components/Blocks";
+import { InteriorSlot, VisitCard, interiorPhotos } from "@/components/Blocks";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -48,10 +50,10 @@ function Home() {
       <section className="container-x section-y">
         <h2 className="h2 text-center">Explore our menu</h2>
         <div className="mt-16 grid gap-6 md:grid-cols-3">
-          {categories.slice(0, 3).map((c) => (
+          {homeCategories.map((s) => categories.find((c) => c.slug === s)!).map((c) => (
             <Link key={c.slug} to="/menu" hash={c.slug} className="zoom-img zoom-lg block" aria-label={`${c.name} menu`}>
               <div className="aspect-[4/5] overflow-hidden rounded-3xl bg-tint">
-                {c.image && <img src={c.image} alt="" loading="lazy" className="h-full w-full object-contain p-10" />}
+                {c.image ? <img src={c.image} alt="" loading="lazy" className="h-full w-full object-contain p-10" /> : <div className="grid h-full place-items-center p-10 text-center"><FeatureIcon name="bakery" className="h-28 w-28" /></div>}
               </div>
               <h3 className="card-title h3 mt-5 text-center">{c.name}</h3>
             </Link>
@@ -77,16 +79,18 @@ function Home() {
           <h2 className="h2">Your coffee stop in Mirdif</h2>
           <p className="mt-4 max-w-lg">Brown Town is a neighbourhood café built around good coffee, a warm room and an easy welcome.</p>
           <div className="mt-10 grid grid-cols-2 gap-8">
-            {[["☕","Espresso bar","Hot and iced espresso drinks."],["🍵","Matcha","Whisked to order."],["📍","Mirdif","Right in the neighbourhood."],["🪑","Warm interior","Wood, ivory and caramel tones."]].map(([i,t,d]) => (
-              <div key={t}><div aria-hidden className="grid h-12 w-12 place-items-center rounded-full bg-caramel text-xl">{i}</div><h3 className="h5 mt-3">{t}</h3><p className="mt-1 text-base">{d}</p></div>
+            {([["cup","Espresso bar","Hot and iced espresso drinks."],["matcha","Matcha","Whisked to order."],["pin","Mirdif","Right in the neighbourhood."],["bakery","Fresh bakery","Croissants, muffins and cookies."]] as const).map(([i,t,d]) => (
+              <div key={t}><FeatureIcon name={i} className="h-12 w-12" /><h3 className="h5 mt-3">{t}</h3><p className="mt-1 text-base">{d}</p></div>
             ))}
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-6">
-          <InteriorSlot className="row-span-2 aspect-[3/5]" />
-          <InteriorSlot className="aspect-square" />
-          <InteriorSlot className="aspect-square" />
-        </div>
+        {interiorPhotos.length > 0 ? (
+          <div className="grid grid-cols-2 gap-6">
+            {interiorPhotos.slice(0, 3).map((src, i) => <InteriorSlot key={src} src={src} className={i === 0 ? "row-span-2 aspect-[3/5]" : "aspect-square"} />)}
+          </div>
+        ) : (
+          <div className="grid place-items-center rounded-3xl bg-tint p-16"><img src={logos.primaryEspresso} alt="" className="w-64" /></div>
+        )}
       </section>
 
       <section className="section-dark">

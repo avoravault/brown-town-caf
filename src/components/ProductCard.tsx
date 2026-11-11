@@ -8,8 +8,10 @@ export function ProductImage({ p, className = "" }: { p: Product; className?: st
       {p.image ? (
         <img src={p.image} alt={p.name} loading="lazy" width={600} height={600} className="h-full w-full object-contain p-6" />
       ) : (
-        <div className="grid h-full w-full place-items-center">
-          <img src={logos.monogram} alt="" className="h-1/3 opacity-30" />
+        <div className="flex h-full w-full flex-col items-center justify-center gap-4 p-6 text-center">
+          <img src={logos.monogram} alt="" className="h-12 opacity-80" />
+          <span className="h4 max-w-[12ch] leading-tight text-espresso">{p.name}</span>
+          <span className="h-px w-10 bg-caramel" />
         </div>
       )}
     </div>
