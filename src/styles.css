@@ -97,17 +97,17 @@
 
 @utility checker { height: 16px; background-image: conic-gradient(var(--espresso) 25%, var(--ivory) 0 50%, var(--espresso) 0 75%, var(--ivory) 0); background-size: 16px 16px; }
 
-/* Hero drinks: centre box height --h, sides 82% of it; widths follow each image's own ratio */
-@utility drink-stage { --h: 528px; height: calc(var(--h) + 24px); padding-top: 24px; overflow: hidden; display: flex; align-items: flex-end; justify-content: center;
-  @media (max-width: 991px) { --h: 440px; } @media (max-width: 767px) { --h: 300px; } @media (max-width: 479px) { --h: 240px; } }
+/* Hero drinks: preserve the approved cold-cup sizes, keep the cappuccino shorter, and space each cup apart. */
+@utility drink-stage { --h: 528px; height: calc(var(--h) + 24px); padding-top: 24px; overflow: hidden; display: flex; align-items: flex-end; justify-content: center; gap: clamp(12px, 3.5vw, 48px);
+  @media (max-width: 991px) { --h: 440px; } @media (max-width: 767px) { --h: 300px; } @media (max-width: 479px) { --h: clamp(190px, 60vw, 240px); } }
 @utility drink { display: block; width: auto; max-width: none; transform-origin: 50% 100%; transform: translateY(100%) scale(0); will-change: transform; }
 
 @keyframes rise-center { to { transform: translateY(0) scale(1); } }
 @keyframes rise-left { to { transform: translateY(0) scale(1) rotate(-7deg); } }
 @keyframes rise-right { to { transform: translateY(0) scale(1) rotate(7deg); } }
-.drink-center { height: var(--h); animation: rise-center .75s ease forwards; position: relative; z-index: 2; }
-.drink-left { height: calc(var(--h) * .82); margin-right: calc(var(--h) * -0.06); animation: rise-center .75s ease .25s forwards, rot-l .5s ease 1s forwards; }
-.drink-right { height: calc(var(--h) * .82); margin-left: calc(var(--h) * -0.06); animation: rise-center .75s ease .4s forwards, rot-r .5s ease 1.15s forwards; }
+.drink-center { height: calc(var(--h) * .78); animation: rise-center .75s ease forwards; position: relative; z-index: 2; }
+.drink-left { height: calc(var(--h) * .82); animation: rise-center .75s ease .25s forwards, rot-l .5s ease 1s forwards; }
+.drink-right { height: calc(var(--h) * .82); animation: rise-center .75s ease .4s forwards, rot-r .5s ease 1.15s forwards; }
 @keyframes rot-l { from { transform: translateY(0) scale(1) rotate(0); } to { transform: translateY(0) scale(1) rotate(-7deg); } }
 @keyframes rot-r { from { transform: translateY(0) scale(1) rotate(0); } to { transform: translateY(0) scale(1) rotate(7deg); } }
 
