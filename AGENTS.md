@@ -28,3 +28,4 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+- Site content (menu, location, posts, links) lives in src/data/site.ts; pages only read from it so the client's data can be swapped in one place.
