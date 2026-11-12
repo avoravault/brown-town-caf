@@ -97,6 +97,18 @@
 
 @utility checker { height: 16px; background-image: conic-gradient(var(--espresso) 25%, var(--ivory) 0 50%, var(--espresso) 0 75%, var(--ivory) 0); background-size: 16px 16px; }
 
+/* Editorial hero: smaller type, restrained brand detail and one warm accent. */
+.hero-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .24em; line-height: 1.5; color: var(--caramel); }
+.hero-eyebrow span { padding-inline: .5em; color: var(--ivory); opacity: .6; }
+.hero-heading { max-width: 930px; margin: 16px auto 0; font-family: var(--font-display); font-size: clamp(44px, 5.15vw, 76px); font-weight: 400; line-height: 1.1; letter-spacing: -.035em; text-wrap: balance; }
+.hero-heading-top, .hero-heading-bottom { display: block; }
+.hero-heading-bottom { margin-top: .035em; }
+.hero-heading em { color: var(--caramel); font-style: italic; }
+@media (max-width: 767px) {
+  .hero-eyebrow { font-size: 10px; letter-spacing: .17em; }
+  .hero-heading { max-width: 550px; font-size: clamp(38px, 9vw, 57px); line-height: 1.14; letter-spacing: -.03em; }
+}
+
 /* Three independent, bottom-aligned product images with deliberate visible gaps. */
 @utility drink-stage {
   --h: 500px;
@@ -105,7 +117,7 @@
   height: calc(var(--h) + 20px);
   margin-inline: auto;
   padding: 20px 24px 0;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -118,7 +130,16 @@
 @keyframes rise-center { to { transform: translateY(0) scale(1); } }
 @keyframes rise-left { to { transform: translateY(0) scale(1) rotate(-5deg); } }
 @keyframes rise-right { to { transform: translateY(0) scale(1) rotate(5deg); } }
-.drink-center { height: var(--h); animation: rise-center .75s ease forwards; position: relative; z-index: 2; }
+.drink-center-wrap { position: relative; height: var(--h); aspect-ratio: 810 / 1261; flex-shrink: 0; z-index: 2; }
+.drink-center { height: 100%; width: 100%; animation: rise-center .75s ease forwards; position: relative; z-index: 2; }
+.cup-steam { position: absolute; left: 50%; bottom: calc(100% - 11px); width: 45%; height: 100px; transform: translateX(-50%); pointer-events: none; z-index: 3; opacity: 0; animation: steam-appear 1.15s ease 1.15s forwards; }
+.cup-steam span { position: absolute; bottom: 0; width: 24%; height: 76%; border-radius: 50%; filter: blur(10px); opacity: 0; background: linear-gradient(to top, rgba(245,240,231,0), rgba(245,240,231,.18) 28%, rgba(245,240,231,.27) 65%, rgba(245,240,231,0)); animation: steam-drift 4.8s ease-in-out infinite; }
+.cup-steam span:nth-child(1) { left: 15%; animation-delay: 0s; }
+.cup-steam span:nth-child(2) { left: 40%; height: 94%; animation-delay: 1.6s; }
+.cup-steam span:nth-child(3) { left: 63%; height: 82%; animation-delay: 3.2s; }
+@keyframes steam-appear { to { opacity: 1; } }
+@keyframes steam-drift { 0% { transform: translate3d(0, 15px, 0) scale(.65); opacity: 0; } 20% { opacity: .55; } 70% { opacity: .32; } 100% { transform: translate3d(12px, -55px, 0) scale(1.5); opacity: 0; } }
+
 .drink-left { height: calc(var(--h) * .78); animation: rise-center .75s ease .25s forwards, rot-l .5s ease 1s forwards; }
 .drink-right { height: calc(var(--h) * .78); animation: rise-center .75s ease .4s forwards, rot-r .5s ease 1.15s forwards; }
 @keyframes rot-l { from { transform: translateY(0) scale(1) rotate(0); } to { transform: translateY(0) scale(1) rotate(-5deg); } }
@@ -145,6 +166,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .drink { animation: none !important; transform: none; }
+  .cup-steam { animation: none !important; opacity: .32; }
+  .cup-steam span { animation: none !important; opacity: .15; transform: translateY(-18px); }
   .drink-left { transform: rotate(-7deg); } .drink-right { transform: rotate(7deg); }
   .ticker-track { animation: none; }
   * { transition-duration: 0s !important; scroll-behavior: auto !important; }
