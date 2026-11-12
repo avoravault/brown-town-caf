@@ -24,8 +24,8 @@ function Hero() {
     <section className="bg-espresso pt-[184px] text-ivory max-md:pt-36">
       <div className="container-x text-center">
         <h1 className="hero-heading" aria-label={site.headline}>
-          <span className="hero-heading-top">Settle into</span>
-          <span className="hero-heading-bottom">Your <em>Next Sip</em></span>
+          <span className="hero-heading-top"><span className="fog-word">Settle</span>{" "}<span className="fog-word">into</span></span>
+          <span className="hero-heading-bottom"><span className="fog-word">Your</span>{" "}<em><span className="fog-word">Next</span>{" "}<span className="fog-word">Sip</span></em></span>
         </h1>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link to="/menu" className="btn btn-ivory">Explore Menu</Link>
