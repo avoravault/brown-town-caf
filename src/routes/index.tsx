@@ -24,8 +24,8 @@ function Hero() {
     <section className="bg-espresso pt-[184px] text-ivory max-md:pt-36">
       <div className="container-x text-center">
         <h1 className="hero-heading" aria-label={site.headline}>
-          <span className="hero-heading-top"><span className="fog-word">Settle</span>{" "}<span className="fog-word">into</span></span>
-          <span className="hero-heading-bottom"><span className="fog-word">Your</span>{" "}<em><span className="fog-word">Next</span>{" "}<span className="fog-word">Sip</span></em></span>
+          <span className="hero-heading-top">Settle into</span>
+          <span className="hero-heading-bottom">Your <em>Next Sip</em></span>
         </h1>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link to="/menu" className="btn btn-ivory">Explore Menu</Link>
@@ -35,7 +35,6 @@ function Hero() {
       <div className="drink-stage mt-20 max-md:mt-12">
         <img src={cupImages.icedLatte} alt="Brown Town iced latte" width={753} height={1167} fetchPriority="high" className="drink drink-left" />
         <div className="drink-center-wrap">
-          <div className="cup-steam" aria-hidden="true"><span /><span /><span /><span /><span /></div>
           <img src={cupImages.cappuccino} alt="Brown Town cappuccino" width={810} height={1261} fetchPriority="high" className="drink drink-center" />
         </div>
         <img src={cupImages.icedMatcha} alt="Brown Town iced matcha latte" width={817} height={1243} fetchPriority="high" className="drink drink-right" />
