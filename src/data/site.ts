@@ -30,7 +30,7 @@ export const categories: Category[] = [
   { slug: "hot-coffee", name: "Hot Coffee", nameAr: "القهوة الساخنة", image: cappuccino.url },
   { slug: "iced-coffee", name: "Iced Coffee", nameAr: "القهوة المثلجة", image: icedLatte.url },
   { slug: "refreshers", name: "Refreshers", nameAr: "مشروبات منعشة" },
-  { slug: "bakery", name: "Bakery", nameAr: "المخبوزات" },
+  { slug: "bakery", name: "Bakery", nameAr: "المخبوزات", image: "/bakery/butter-croissant.webp" },
   { slug: "signature-drinks", name: "Signature Drinks", nameAr: "مشروبات مميزة" },
   { slug: "matcha", name: "Matcha", nameAr: "ماتشا", image: icedMatcha.url },
 ];
