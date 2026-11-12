@@ -82,7 +82,10 @@ export const location = {
   address: "3-1924, Mirdif, Dubai, United Arab Emirates",
   mapUrl: "https://www.google.com/maps/dir/?api=1&destination=25.2227571%2C55.4350648",
   mapEmbedUrl: "https://www.google.com/maps?q=25.2227571%2C55.4350648&z=16&output=embed",
-  hours: undefined as { days: string; time: string }[] | undefined,
+  hours: [
+    { days: "Monday–Friday", time: "10:00 AM – 11:00 PM" },
+    { days: "Saturday–Sunday", time: "10:00 AM – 12:00 AM (midnight)" },
+  ],
   phone: "+971 56 361 3143",
   email: "info.browntowncafe@gmail.com",
 };
