@@ -10,7 +10,13 @@ export function Footer() {
       <footer className="bg-espresso text-ivory">
         <div className="container-x grid gap-12 py-24 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <img src={logos.primaryIvory} alt="Brown Town Café" className="h-auto w-52" width={386} height={324} loading="lazy" />
-          <div><h2 className="h5 mb-4 text-caramel">Visit</h2><p>{location.address ?? location.area}</p></div>
+          <div>
+            <h2 className="h5 mb-4 text-caramel">Visit</h2>
+            <p>{location.address ?? location.area}</p>
+            {location.phone && <a href={`tel:${location.phone.replace(/[^+\\d]/g, "")}`} className="mt-3 block hover:text-caramel">{location.phone}</a>}
+            {location.email && <a href={`mailto:${location.email}`} className="mt-2 block break-all hover:text-caramel">{location.email}</a>}
+            {location.mapUrl && <a href={location.mapUrl} target="_blank" rel="noreferrer" className="mt-3 block hover:text-caramel">Get directions</a>}
+          </div>
           <div>
             <h2 className="h5 mb-4 text-caramel">Pages</h2>
             <ul className="space-y-2">
