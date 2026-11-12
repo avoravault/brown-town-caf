@@ -9,7 +9,6 @@ export const site = {
   name: "Brown Town Café",
   headline: "Brown Town Café",
   description: "A neighbourhood coffee shop in Mirdif, Dubai.",
-  announcement: "Opening in Mirdif, Dubai",
 };
 
 export type Category = { slug: string; name: string; nameAr: string; image?: string };

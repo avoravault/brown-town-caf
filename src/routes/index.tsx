@@ -31,9 +31,9 @@ function Hero() {
         </div>
       </div>
       <div className="drink-stage mt-20 max-md:mt-12">
-        <img src={cupImages.icedLatte} alt="Brown Town iced latte" width={762} height={1284} fetchPriority="high" className="drink drink-left" />
-        <img src={cupImages.cappuccino} alt="Brown Town cappuccino" width={819} height={1301} fetchPriority="high" className="drink drink-center" />
-        <img src={cupImages.icedMatcha} alt="Brown Town iced matcha latte" width={721} height={1289} fetchPriority="high" className="drink drink-right" />
+        <img src={cupImages.icedLatte} alt="Brown Town iced latte" width={753} height={1167} fetchPriority="high" className="drink drink-left" />
+        <img src={cupImages.cappuccino} alt="Brown Town cappuccino" width={810} height={1261} fetchPriority="high" className="drink drink-center" />
+        <img src={cupImages.icedMatcha} alt="Brown Town iced matcha latte" width={817} height={1243} fetchPriority="high" className="drink drink-right" />
       </div>
     </section>
   );
