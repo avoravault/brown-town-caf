@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
 
 function Hero() {
   return (
-    <section className="bg-espresso pt-[184px] text-ivory max-md:pt-36">
+    <section className="bg-espresso pt-[184px] text-ivory max-md:pt-28">
       <div className="container-x text-center">
         <h1 className="hero-heading" aria-label={site.headline}>
           <span className="hero-heading-top">Settle into</span>
@@ -31,7 +31,7 @@ function Hero() {
           <Link to="/locations" className="btn btn-outline-ivory">Our Location</Link>
         </div>
       </div>
-      <div className="drink-stage mt-16 max-md:mt-12">
+      <div className="drink-stage mt-16 max-md:mt-8">
         <img src={cupImages.icedLatte} alt="Brown Town iced latte" width={1024} height={1536} fetchPriority="high" className="drink drink-left" />
         <div className="drink-center-wrap">
           <img src={cupImages.cappuccino} alt="Brown Town cappuccino" width={1086} height={1448} fetchPriority="high" className="drink drink-center" />
