@@ -31,12 +31,12 @@ function Hero() {
           <Link to="/locations" className="btn btn-outline-ivory">Our Location</Link>
         </div>
       </div>
-      <div className="drink-stage mt-20 max-md:mt-12">
-        <img src={cupImages.icedLatte} alt="Brown Town iced latte" width={753} height={1167} fetchPriority="high" className="drink drink-left" />
+      <div className="drink-stage mt-16 max-md:mt-12">
+        <img src={cupImages.icedLatte} alt="Brown Town iced latte" width={1024} height={1536} fetchPriority="high" className="drink drink-left" />
         <div className="drink-center-wrap">
-          <img src={cupImages.cappuccino} alt="Brown Town cappuccino" width={810} height={1261} fetchPriority="high" className="drink drink-center" />
+          <img src={cupImages.cappuccino} alt="Brown Town cappuccino" width={1086} height={1448} fetchPriority="high" className="drink drink-center" />
         </div>
-        <img src={cupImages.icedMatcha} alt="Brown Town iced matcha latte" width={817} height={1243} fetchPriority="high" className="drink drink-right" />
+        <img src={cupImages.icedMatcha} alt="Brown Town iced matcha latte" width={1060} height={1484} fetchPriority="high" className="drink drink-right" />
       </div>
     </section>
   );
