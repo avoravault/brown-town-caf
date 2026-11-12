@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { InteriorSlot, interiorPhotos } from "@/components/Blocks";
 import { CtaBanner } from "@/components/CtaBanner";
-import { Ticker } from "@/components/Ticker";
 import { logos } from "@/components/Logo";
 
 export const Route = createFileRoute("/about-us")({
@@ -17,7 +16,6 @@ export const Route = createFileRoute("/about-us")({
         <h1 className="h1 container-x">About Us</h1>
         <p className="mt-3">A neighbourhood coffee shop in Mirdif, Dubai.</p>
       </section>
-      <Ticker />
       <section className="container-x section-y grid items-center gap-16 lg:grid-cols-2">
         <img src={logos.primaryEspresso} alt="Brown Town Café" className="mx-auto w-72" width={386} height={324} />
         <div>
