@@ -18,7 +18,8 @@ export function Footer() {
           <div>
             <h2 className="h5 mb-4 text-caramel">Pages</h2>
             <ul className="space-y-2">
-              {([["/menu","Menu"],["/locations","Location"],["/about-us","About Us"],...(publishedPosts().length ? [["/news","News"]] : [])] as const).map(([to,l]) => <li key={to}><Link to={to} className="hover:text-caramel">{l}</Link></li>)}
+              {([["/menu","Menu"],["/locations","Location"],["/about-us","About Us"]] as const).map(([to,l]) => <li key={to}><Link to={to} className="hover:text-caramel">{l}</Link></li>)}
+              {publishedPosts().length > 0 && <li><Link to="/news" className="hover:text-caramel">News</Link></li>}
             </ul>
           </div>
           <div>
