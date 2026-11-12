@@ -96,6 +96,10 @@
   &:hover { background: var(--caramel); border-color: var(--caramel); } }
 
 @utility checker { height: 16px; background-image: conic-gradient(var(--espresso) 25%, var(--ivory) 0 50%, var(--espresso) 0 75%, var(--ivory) 0); background-size: 16px 16px; }
+/* Animate only the homepage transition, leaving the footer checker stationary. */
+.checker-motion { animation: checker-slide 3.8s linear infinite; }
+@keyframes checker-slide { from { background-position: 0 0; } to { background-position: 16px 0; } }
+@media (prefers-reduced-motion: reduce) { .checker-motion { animation: none; } }
 
 /* Expressive display typography at the original hero scale. */
 .hero-heading { max-width: 1120px; margin: 0 auto; font-family: var(--font-display); font-size: 96px; font-weight: 400; line-height: 1.12; letter-spacing: -.03em; text-wrap: balance; }
