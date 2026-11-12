@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { categories, location, socialLinks } from "@/data/site";
+import { categories, location, socialLinks, publishedPosts } from "@/data/site";
 import { logos } from "./Logo";
 
 export function Footer() {
@@ -18,7 +18,7 @@ export function Footer() {
           <div>
             <h2 className="h5 mb-4 text-caramel">Pages</h2>
             <ul className="space-y-2">
-              {([["/menu","Menu"],["/locations","Location"],["/about-us","About Us"],["/news","News"]] as const).map(([to,l]) => <li key={to}><Link to={to} className="hover:text-caramel">{l}</Link></li>)}
+              {([["/menu","Menu"],["/locations","Location"],["/about-us","About Us"],...(publishedPosts().length ? [["/news","News"]] : [])] as const).map(([to,l]) => <li key={to}><Link to={to} className="hover:text-caramel">{l}</Link></li>)}
             </ul>
           </div>
           <div>
