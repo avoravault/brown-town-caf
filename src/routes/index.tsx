@@ -48,7 +48,7 @@ function Home() {
   return (
     <>
       <Hero />
-      <div className="checker" aria-hidden="true" />
+      <div className="checker checker-motion" aria-hidden="true" />
 
       <section className="container-x section-y">
         <h2 className="h2 text-center">Explore our menu</h2>
