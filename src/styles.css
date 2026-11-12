@@ -97,7 +97,7 @@
 
 @utility checker { height: 16px; background-image: conic-gradient(var(--espresso) 25%, var(--ivory) 0 50%, var(--espresso) 0 75%, var(--ivory) 0); background-size: 16px 16px; }
 /* Animate only the homepage transition, leaving the footer checker stationary. */
-.checker-motion { animation: checker-slide 3.8s linear infinite; }
+.checker-motion { animation: checker-slide 2.4s linear infinite; }
 @keyframes checker-slide { from { background-position: 0 0; } to { background-position: 16px 0; } }
 @media (prefers-reduced-motion: reduce) { .checker-motion { animation: none; } }
 
@@ -112,20 +112,20 @@
 
 /* Three independent, bottom-aligned product images with deliberate visible gaps. */
 @utility drink-stage {
-  --h: 500px;
+  --h: 470px;
   width: 100%;
   max-width: 1320px;
-  height: calc(var(--h) + 20px);
+  height: calc(var(--h) + 44px);
   margin-inline: auto;
-  padding: 20px 24px 0;
+  padding: 20px 24px 24px;
   overflow: visible;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  column-gap: clamp(56px, 6vw, 100px);
-  @media (max-width: 991px) { --h: 390px; column-gap: clamp(24px, 4vw, 48px); }
-  @media (max-width: 767px) { --h: min(280px, 39vw); padding-inline: 12px; column-gap: clamp(12px, 3vw, 24px); }
-  @media (max-width: 479px) { --h: min(240px, 38vw); padding-inline: 8px; column-gap: 8px; }
+  column-gap: clamp(52px, 5.5vw, 88px);
+  @media (max-width: 991px) { --h: 360px; column-gap: clamp(20px, 3.5vw, 42px); }
+  @media (max-width: 767px) { --h: min(280px, 43vw); padding-inline: 12px; padding-bottom: 18px; column-gap: clamp(12px, 3vw, 24px); }
+  @media (max-width: 479px) { --h: min(230px, 42vw); padding-inline: 8px; padding-bottom: 14px; column-gap: 8px; }
 }
 @utility drink { display: block; flex-shrink: 0; width: auto; max-width: none; object-fit: contain; transform-origin: 50% 100%; transform: translateY(100%) scale(0); will-change: transform; }
 @keyframes rise-center { to { transform: translateY(0) scale(1); } }
@@ -133,8 +133,8 @@
 @keyframes rise-right { to { transform: translateY(0) scale(1) rotate(5deg); } }
 .drink-center-wrap { position: relative; height: var(--h); aspect-ratio: 810 / 1261; flex-shrink: 0; z-index: 2; }
 .drink-center { height: 100%; width: 100%; animation: rise-center .75s ease forwards; position: relative; z-index: 2; }
-.drink-left { height: calc(var(--h) * .78); animation: rise-center .75s ease .25s forwards, rot-l .5s ease 1s forwards; }
-.drink-right { height: calc(var(--h) * .78); animation: rise-center .75s ease .4s forwards, rot-r .5s ease 1.15s forwards; }
+.drink-left { height: calc(var(--h) * .82); animation: rise-center .75s ease .25s forwards, rot-l .5s ease 1s forwards; }
+.drink-right { height: calc(var(--h) * .82); animation: rise-center .75s ease .4s forwards, rot-r .5s ease 1.15s forwards; }
 @keyframes rot-l { from { transform: translateY(0) scale(1) rotate(0); } to { transform: translateY(0) scale(1) rotate(-5deg); } }
 @keyframes rot-r { from { transform: translateY(0) scale(1) rotate(0); } to { transform: translateY(0) scale(1) rotate(5deg); } }
 
@@ -155,6 +155,5 @@
 @media (prefers-reduced-motion: reduce) {
   .drink { animation: none !important; transform: none; }
   .drink-left { transform: rotate(-7deg); } .drink-right { transform: rotate(7deg); }
-  .ticker-track { animation: none; }
   * { transition-duration: 0s !important; scroll-behavior: auto !important; }
 }
