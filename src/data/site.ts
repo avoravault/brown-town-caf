@@ -7,7 +7,7 @@ export const cupImages = { cappuccino: cappuccino.url, icedLatte: icedLatte.url,
 
 export const site = {
   name: "Brown Town Café",
-  headline: "Brown Town Café",
+  headline: "Settle into Your Next Sip",
   description: "A neighbourhood coffee shop in Mirdif, Dubai.",
 };
 
