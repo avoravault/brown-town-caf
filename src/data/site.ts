@@ -1,7 +1,8 @@
 // Editable site content. Replace draft values here; all pages read from this file.
-import cappuccino from "@/assets/cappuccino_cup.webp.asset.json";
-import icedLatte from "@/assets/iced_latte_cutout.webp.asset.json";
-import icedMatcha from "@/assets/iced_matcha_latte.webp.asset.json";
+// Approved brand cup mockups are served locally for hosting independence.
+const cappuccino = { url: "/hero-cups/cappuccino.webp" };
+const icedLatte = { url: "/hero-cups/iced-latte.webp" };
+const icedMatcha = { url: "/hero-cups/iced-matcha.webp" };
 
 export const cupImages = { cappuccino: cappuccino.url, icedLatte: icedLatte.url, icedMatcha: icedMatcha.url };
 
