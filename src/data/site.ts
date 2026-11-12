@@ -79,11 +79,12 @@ export const homeCategories = ["hot-coffee", "matcha", "bakery"];
 export const location = {
   name: "Brown Town Café — Mirdif",
   area: "Mirdif, Dubai",
-  address: undefined as string | undefined, // exact address when supplied
-  mapUrl: undefined as string | undefined,
+  address: "3-1924, Mirdif, Dubai, United Arab Emirates",
+  mapUrl: "https://www.google.com/maps/dir/?api=1&destination=25.2227571%2C55.4350648",
+  mapEmbedUrl: "https://www.google.com/maps?q=25.2227571%2C55.4350648&z=16&output=embed",
   hours: undefined as { days: string; time: string }[] | undefined,
-  phone: undefined as string | undefined,
-  email: undefined as string | undefined,
+  phone: "+971 56 361 3143",
+  email: "info.browntowncafe@gmail.com",
 };
 
 export type Post = { slug: string; title: string; date: string; image?: string; excerpt: string; body: string[]; published: boolean };
@@ -91,7 +92,7 @@ export const posts: Post[] = [];
 export const publishedPosts = () => posts.filter((p) => p.published);
 
 export const orderingLinks: { label: string; url: string }[] = [];
-export const socialLinks: { label: string; url: string }[] = [];
+export const socialLinks: { label: string; url: string }[] = [{ label: "Instagram", url: "https://www.instagram.com/brown_town_cafe_dubai" }];
 export const reviews: { quote: string; name: string }[] = [];
 
 export const tickerWords = ["Espresso", "Cappuccino", "Iced Latte", "Mirdif", "Matcha", "Brown Town"];
