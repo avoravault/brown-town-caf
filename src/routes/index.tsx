@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { categories, cupImages, featured, homeCategories, location, products, publishedPosts, site } from "@/data/site";
 import { FeatureIcon } from "@/components/FeatureIcon";
 import { logos } from "@/components/Logo";
-import { Ticker } from "@/components/Ticker";
 import { ProductCard } from "@/components/ProductCard";
 import { CtaBanner } from "@/components/CtaBanner";
 import { InteriorSlot, VisitCard, interiorPhotos } from "@/components/Blocks";
@@ -49,7 +48,6 @@ function Home() {
   return (
     <>
       <Hero />
-      <Ticker />
 
       <section className="container-x section-y">
         <h2 className="h2 text-center">Explore our menu</h2>
