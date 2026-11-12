@@ -68,9 +68,9 @@ export const products: Product[] = [
   { slug: "arabic-mocha", name: "Arabic mocha", category: "signature-drinks", price: 30 },
   { slug: "classic-matcha-latte", name: "Classic matcha latte", category: "matcha", price: 25 },
   { slug: "iced-matcha-latte", name: "Iced matcha latte", category: "matcha", price: 25, image: icedMatcha.url },
-  { slug: "mango-matcha", name: "Mango matcha", category: "matcha", price: 30 },
-  { slug: "matcha-cold", name: "Matcha cold", category: "matcha", price: 32 },
-  { slug: "spanish-matcha", name: "Spanish matcha", category: "matcha", price: 30 },
+  { slug: "mango-matcha", name: "Mango matcha", category: "matcha", price: 30, image: "/matcha/mango-matcha.webp" },
+  { slug: "matcha-cold", name: "Matcha cold", category: "matcha", price: 32, image: "/matcha/matcha-cold.webp" },
+  { slug: "spanish-matcha", name: "Spanish matcha", category: "matcha", price: 30, image: "/matcha/spanish-matcha.webp" },
 ];
 
 export const featured = ["cappuccino", "iced-latte", "iced-matcha-latte", "1833-signature-latte"];
