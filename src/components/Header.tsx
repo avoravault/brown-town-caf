@@ -1,6 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { site } from "@/data/site";
 import { logos } from "./Logo";
 
 const left = [{ to: "/menu", label: "Menu" }, { to: "/locations", label: "Location" }] as const;
@@ -19,7 +18,6 @@ function LogoButton() {
 }
 
 export function Header() {
-  const [bar, setBar] = useState(true);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const path = useRouterState({ select: (s) => s.location.pathname });
@@ -36,12 +34,6 @@ export function Header() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      {bar && (
-        <div className="relative bg-caramel py-2 text-center text-sm text-ivory">
-          {site.announcement}
-          <button onClick={() => setBar(false)} aria-label="Close announcement" className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full px-2 hover:bg-ivory hover:text-espresso">✕</button>
-        </div>
-      )}
       <div className="mt-4 flex justify-center px-4">
         <nav aria-label="Main" className={`hidden items-center gap-8 rounded-full p-[18px] py-3 md:flex ${pill}`}>
           {left.map((l) => <Link key={l.to} to={l.to} className={linkCls} activeProps={{ className: "text-caramel" }}>{l.label}</Link>)}
