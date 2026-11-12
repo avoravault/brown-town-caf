@@ -97,21 +97,32 @@
 
 @utility checker { height: 16px; background-image: conic-gradient(var(--espresso) 25%, var(--ivory) 0 50%, var(--espresso) 0 75%, var(--ivory) 0); background-size: 16px 16px; }
 
-/* Hero drinks: centre box height --h, sides 82% of it; widths follow each image's own ratio */
-@utility drink-stage { --h: 528px; height: calc(var(--h) + 24px); padding-top: 24px; overflow: hidden; display: flex; align-items: flex-end; justify-content: center; column-gap: clamp(8px, 1vw, 16px);
-  @media (max-width: 991px) { --h: 440px; }
-  @media (max-width: 767px) { --h: min(300px, 56vw); }
-  @media (max-width: 479px) { --h: min(240px, 56vw); column-gap: 6px; } }
-@utility drink { display: block; flex: none; width: auto; max-width: none; transform-origin: 50% 100%; transform: translateY(100%) scale(0); will-change: transform; }
-
+/* Three independent, bottom-aligned product images with deliberate visible gaps. */
+@utility drink-stage {
+  --h: 500px;
+  width: 100%;
+  max-width: 1320px;
+  height: calc(var(--h) + 20px);
+  margin-inline: auto;
+  padding: 20px 24px 0;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  column-gap: clamp(56px, 6vw, 100px);
+  @media (max-width: 991px) { --h: 390px; column-gap: clamp(24px, 4vw, 48px); }
+  @media (max-width: 767px) { --h: min(280px, 39vw); padding-inline: 12px; column-gap: clamp(12px, 3vw, 24px); }
+  @media (max-width: 479px) { --h: min(240px, 38vw); padding-inline: 8px; column-gap: 8px; }
+}
+@utility drink { display: block; flex-shrink: 0; width: auto; max-width: none; object-fit: contain; transform-origin: 50% 100%; transform: translateY(100%) scale(0); will-change: transform; }
 @keyframes rise-center { to { transform: translateY(0) scale(1); } }
-@keyframes rise-left { to { transform: translateY(0) scale(1) rotate(-7deg); } }
-@keyframes rise-right { to { transform: translateY(0) scale(1) rotate(7deg); } }
+@keyframes rise-left { to { transform: translateY(0) scale(1) rotate(-5deg); } }
+@keyframes rise-right { to { transform: translateY(0) scale(1) rotate(5deg); } }
 .drink-center { height: var(--h); animation: rise-center .75s ease forwards; position: relative; z-index: 2; }
-.drink-left { height: calc(var(--h) * .82); animation: rise-center .75s ease .25s forwards, rot-l .5s ease 1s forwards; }
-.drink-right { height: calc(var(--h) * .82); animation: rise-center .75s ease .4s forwards, rot-r .5s ease 1.15s forwards; }
-@keyframes rot-l { from { transform: translateY(0) scale(1) rotate(0); } to { transform: translateY(0) scale(1) rotate(-7deg); } }
-@keyframes rot-r { from { transform: translateY(0) scale(1) rotate(0); } to { transform: translateY(0) scale(1) rotate(7deg); } }
+.drink-left { height: calc(var(--h) * .78); animation: rise-center .75s ease .25s forwards, rot-l .5s ease 1s forwards; }
+.drink-right { height: calc(var(--h) * .78); animation: rise-center .75s ease .4s forwards, rot-r .5s ease 1.15s forwards; }
+@keyframes rot-l { from { transform: translateY(0) scale(1) rotate(0); } to { transform: translateY(0) scale(1) rotate(-5deg); } }
+@keyframes rot-r { from { transform: translateY(0) scale(1) rotate(0); } to { transform: translateY(0) scale(1) rotate(5deg); } }
 
 @keyframes ticker { to { transform: translateX(-50%); } }
 .ticker-track { display: flex; width: max-content; animation: ticker 15s linear infinite; }
