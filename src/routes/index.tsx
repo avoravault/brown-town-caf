@@ -24,7 +24,6 @@ function Hero() {
     <section className="bg-espresso pt-[184px] text-ivory max-md:pt-36">
       <div className="container-x text-center">
         <h1 className="h1 mx-auto max-w-[680px]">{site.headline}</h1>
-        <p className="mt-3">{site.description}</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link to="/menu" className="btn btn-ivory">Explore Menu</Link>
           <Link to="/locations" className="btn btn-outline-ivory">Our Location</Link>
