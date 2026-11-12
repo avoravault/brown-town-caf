@@ -13,7 +13,7 @@ export function Footer() {
           <div>
             <h2 className="h5 mb-4 text-caramel">Visit</h2>
             <p>{location.address ?? location.area}</p>
-            {location.phone && <a href={`tel:${location.phone.replace(/[^+\\d]/g, "")}`} className="mt-3 block hover:text-caramel">{location.phone}</a>}
+            {location.phone && <a href={`tel:${location.phone.replaceAll(" ", "")}`} className="mt-3 block hover:text-caramel">{location.phone}</a>}
             {location.email && <a href={`mailto:${location.email}`} className="mt-2 block break-all hover:text-caramel">{location.email}</a>}
             {location.mapUrl && <a href={location.mapUrl} target="_blank" rel="noreferrer" className="mt-3 block hover:text-caramel">Get directions</a>}
           </div>
