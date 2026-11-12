@@ -1,12 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { categories, location, socialLinks } from "@/data/site";
 import { logos } from "./Logo";
-import { Ticker } from "./Ticker";
 
 export function Footer() {
   return (
     <>
-      <Ticker />
       <footer className="bg-espresso text-ivory">
         <div className="container-x grid gap-12 py-24 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <img src={logos.primaryIvory} alt="Brown Town Café" className="h-auto w-52" width={386} height={324} loading="lazy" />
