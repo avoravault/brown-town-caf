@@ -23,7 +23,6 @@ function Hero() {
   return (
     <section className="bg-espresso pt-[184px] text-ivory max-md:pt-36">
       <div className="container-x text-center">
-        <p className="hero-eyebrow">BROWN TOWN CAFÉ <span aria-hidden="true">·</span> MIRDIF</p>
         <h1 className="hero-heading" aria-label={site.headline}>
           <span className="hero-heading-top">Settle into</span>
           <span className="hero-heading-bottom">Your <em>Next Sip</em></span>
@@ -36,7 +35,7 @@ function Hero() {
       <div className="drink-stage mt-20 max-md:mt-12">
         <img src={cupImages.icedLatte} alt="Brown Town iced latte" width={753} height={1167} fetchPriority="high" className="drink drink-left" />
         <div className="drink-center-wrap">
-          <div className="cup-steam" aria-hidden="true"><span /><span /><span /></div>
+          <div className="cup-steam" aria-hidden="true"><span /><span /><span /><span /><span /></div>
           <img src={cupImages.cappuccino} alt="Brown Town cappuccino" width={810} height={1261} fetchPriority="high" className="drink drink-center" />
         </div>
         <img src={cupImages.icedMatcha} alt="Brown Town iced matcha latte" width={817} height={1243} fetchPriority="high" className="drink drink-right" />
