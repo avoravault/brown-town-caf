@@ -94,8 +94,8 @@ function Home() {
 
       <section className="section-dark">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
-          <div className="grid aspect-[4/3] place-items-center rounded-3xl bg-ivory/10 text-center">
-            <div><p className="h3">{location.area}</p><p className="mt-2 text-sm opacity-80">Map coming soon</p></div>
+          <div className="aspect-[4/3] overflow-hidden rounded-3xl bg-ivory/10">
+            <iframe title="Brown Town Café location in Mirdif" src={location.mapEmbedUrl} className="h-full w-full border-0" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
           </div>
           <VisitCard />
         </div>
