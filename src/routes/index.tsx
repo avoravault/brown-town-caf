@@ -23,7 +23,11 @@ function Hero() {
   return (
     <section className="bg-espresso pt-[184px] text-ivory max-md:pt-36">
       <div className="container-x text-center">
-        <h1 className="h1 mx-auto max-w-[680px]">{site.headline}</h1>
+        <p className="hero-eyebrow">BROWN TOWN CAFÉ <span aria-hidden="true">·</span> MIRDIF</p>
+        <h1 className="hero-heading" aria-label={site.headline}>
+          <span className="hero-heading-top">Settle into</span>
+          <span className="hero-heading-bottom">Your <em>Next Sip</em></span>
+        </h1>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link to="/menu" className="btn btn-ivory">Explore Menu</Link>
           <Link to="/locations" className="btn btn-outline-ivory">Our Location</Link>
@@ -31,7 +35,10 @@ function Hero() {
       </div>
       <div className="drink-stage mt-20 max-md:mt-12">
         <img src={cupImages.icedLatte} alt="Brown Town iced latte" width={753} height={1167} fetchPriority="high" className="drink drink-left" />
-        <img src={cupImages.cappuccino} alt="Brown Town cappuccino" width={810} height={1261} fetchPriority="high" className="drink drink-center" />
+        <div className="drink-center-wrap">
+          <div className="cup-steam" aria-hidden="true"><span /><span /><span /></div>
+          <img src={cupImages.cappuccino} alt="Brown Town cappuccino" width={810} height={1261} fetchPriority="high" className="drink drink-center" />
+        </div>
         <img src={cupImages.icedMatcha} alt="Brown Town iced matcha latte" width={817} height={1243} fetchPriority="high" className="drink drink-right" />
       </div>
     </section>
@@ -94,8 +101,9 @@ function Home() {
 
       <section className="section-dark">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
-          <div className="aspect-[4/3] overflow-hidden rounded-3xl bg-ivory/10">
-            <iframe title="Brown Town Café location in Mirdif" src={location.mapEmbedUrl} className="h-full w-full border-0" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+          <div className="overflow-hidden rounded-3xl bg-ivory/10">
+            <iframe title="Brown Town Café location in Mirdif" src={location.mapEmbedUrl} className="block aspect-[4/3] w-full border-0" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+            <a href={location.mapUrl} target="_blank" rel="noreferrer" className="block px-6 py-4 text-center text-base text-ivory underline underline-offset-4 hover:text-caramel">Open location in Google Maps</a>
           </div>
           <VisitCard />
         </div>
