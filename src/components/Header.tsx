@@ -1,11 +1,9 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { logos } from "./Logo";
-import { publishedPosts } from "@/data/site";
 
 const left = [{ to: "/menu", label: "Menu" }, { to: "/locations", label: "Location" }] as const;
-const right = [{ to: "/about-us", label: "About Us" }] as const;
-const extra = publishedPosts().length > 0 ? [{ to: "/news", label: "News" }] : [];
+const right = [{ to: "/about-us", label: "About Us" }, { to: "/news", label: "News" }] as const;
 const linkCls = "rounded-full px-3 py-2 text-base transition-colors duration-[350ms] hover:bg-ivory hover:text-espresso focus-visible:bg-ivory focus-visible:text-espresso";
 
 function LogoButton() {
@@ -37,10 +35,14 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="mt-4 flex justify-center px-4">
-        <nav aria-label="Main" className={`hidden items-center gap-8 rounded-full px-[18px] py-2 md:flex ${pill}`}>
-          {left.map((l) => <Link key={l.to} to={l.to} className={linkCls} activeProps={{ className: "text-caramel" }}>{l.label}</Link>)}
+        <nav aria-label="Main" className={`hidden grid-cols-[minmax(0,1fr)_40px_minmax(0,1fr)] items-center gap-5 rounded-full px-5 py-3 md:grid ${pill}`}>
+          <div className="flex items-center justify-end gap-3">
+            {left.map((l) => <Link key={l.to} to={l.to} className={linkCls} activeProps={{ className: "text-caramel" }}>{l.label}</Link>)}
+          </div>
           <LogoButton />
-          {[...right, ...extra].map((l) => <Link key={l.to} to={l.to} className={linkCls} activeProps={{ className: "text-caramel" }}>{l.label}</Link>)}
+          <div className="flex items-center justify-start gap-3">
+            {right.map((l) => <Link key={l.to} to={l.to} className={linkCls} activeProps={{ className: "text-caramel" }}>{l.label}</Link>)}
+          </div>
         </nav>
         <nav aria-label="Main" className={`w-full max-w-sm overflow-hidden rounded-[28px] md:hidden ${pill}`}>
           <div className="flex items-center justify-between p-2 pl-3">
@@ -51,7 +53,7 @@ export function Header() {
           </div>
           <div id="mnav" className={`grid transition-[grid-template-rows] duration-[350ms] ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
             <ul className="flex flex-col gap-1 overflow-hidden px-3" hidden={!open}>
-              {[...left, ...right, ...extra].map((l) => <li key={l.to}><Link to={l.to} className={`${linkCls} block`}>{l.label}</Link></li>)}
+              {[...left, ...right].map((l) => <li key={l.to}><Link to={l.to} className={`${linkCls} block`}>{l.label}</Link></li>)}
               <li className="h-3" />
             </ul>
           </div>
