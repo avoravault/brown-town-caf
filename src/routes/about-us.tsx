@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CtaBanner } from "@/components/CtaBanner";
 import { cupImages, location } from "@/data/site";
+import { InteriorSlot, interiorPhotos } from "@/components/Blocks";
 
 export const Route = createFileRoute("/about-us")({
   head: () => ({ meta: [
@@ -42,6 +43,23 @@ function AboutPage() {
           <Link to="/menu" className="btn btn-espresso mt-8">Explore our menu</Link>
         </div>
       </section>
+
+      {interiorPhotos.length > 0 && (
+        <section className="bg-tint section-y" aria-labelledby="interior-heading">
+          <div className="container-x">
+            <div className="mb-10 flex flex-wrap items-end justify-between gap-5">
+              <div>
+                <p className="text-sm uppercase tracking-[.22em] text-caramel">A look inside</p>
+                <h2 id="interior-heading" className="h2 mt-3">A place to settle in</h2>
+              </div>
+              <p className="max-w-sm text-base leading-relaxed">
+                An interior concept featuring warm textures, relaxed seating and Brown Town's signature palette.
+              </p>
+            </div>
+            <InteriorSlot src={interiorPhotos[0]} className="aspect-[4/3] w-full sm:aspect-[16/9]" />
+          </div>
+        </section>
+      )}
 
       <section className="bg-tint section-y">
         <div className="container-x">
