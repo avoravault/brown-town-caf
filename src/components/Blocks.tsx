@@ -1,17 +1,27 @@
 import { Link } from "@tanstack/react-router";
 import { location } from "@/data/site";
 
-// Swap for real interior photography: pass `src`.
+// A conceptual interior visualization, not a photograph of the finished café.
+// URL encoding preserves the combining accent in the filename uploaded to GitHub.
+export const interiorPhotos: string[] = ["/interiors/Brown%20Town%20Cafe%CC%81%20Interior.png"];
+
 export function InteriorSlot({ src, className = "" }: { src?: string; className?: string }) {
-  if (!src) return null; // hidden until interior photos are supplied
+  if (!src) return null;
   return (
-    <figure className={`relative overflow-hidden rounded-3xl bg-tint ${className}`}>
-      <img src={src} alt="Brown Town interior" loading="lazy" className="h-full w-full object-cover" />
+    <figure className={`interior-reveal relative overflow-hidden rounded-3xl bg-tint ${className}`}>
+      <img
+        src={src}
+        alt="Brown Town Café interior concept showing the espresso bar, caramel seating and checkerboard floor"
+        loading="lazy"
+        decoding="async"
+        className="h-full w-full object-cover"
+      />
+      <figcaption className="absolute bottom-4 left-4 rounded-full bg-espresso/85 px-4 py-2 text-xs font-medium uppercase tracking-widest text-ivory">
+        Interior concept
+      </figcaption>
     </figure>
   );
 }
-
-export const interiorPhotos: string[] = []; // add interior photo URLs here
 
 export function VisitCard() {
   const l = location;
