@@ -88,9 +88,7 @@ function Home() {
           </div>
         </div>
         {interiorPhotos.length > 0 ? (
-          <div className="grid grid-cols-2 gap-6">
-            {interiorPhotos.slice(0, 3).map((src, i) => <InteriorSlot key={src} src={src} className={i === 0 ? "row-span-2 aspect-[3/5]" : "aspect-square"} />)}
-          </div>
+          <InteriorSlot src={interiorPhotos[0]} className="aspect-[4/3] w-full shadow-lg shadow-espresso/10" />
         ) : (
           <div className="grid place-items-center rounded-3xl bg-tint p-16"><img src={logos.primaryEspresso} alt="" className="w-64" /></div>
         )}
